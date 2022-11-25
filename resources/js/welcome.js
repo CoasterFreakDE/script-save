@@ -12,7 +12,7 @@ async function loadScriptPreview(id) {
             var scriptThumbnail = scriptPreview.querySelector('[name="script-thumbnail"]');
 
             scriptDetails.innerHTML = `
-            <div name="script-title" class="text-xl font-black">${preview.name}</div>
+            <div name="script-title" class="text-xl font-black truncate">${preview.name}</div>
             <div name="script-description" class="text-xs truncate">${preview.description}</div>
             `;
 
