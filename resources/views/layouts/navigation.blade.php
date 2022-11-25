@@ -39,7 +39,7 @@
 
                         @auth
                             <x-dropdown-link :href="route('dashboard')">
-                                {{ __('Your Scripts') }}
+                                {{ __('Your scripts') }}
                             </x-dropdown-link>
 
                             <x-dropdown-link :href="route('profile.edit')">
@@ -104,6 +104,10 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('dashboard')">
+                    {{ __('Your scripts') }}
+                </x-responsive-nav-link>
+
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>

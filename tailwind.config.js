@@ -12,6 +12,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Rubik', ...defaultTheme.fontFamily.sans],
+                code: ['Fira Code', ...defaultTheme.fontFamily.mono],
             },
             colors: {
                 background: "#0f0f0f",

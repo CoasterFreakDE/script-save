@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Script;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,6 +27,7 @@ class ScriptController extends Controller {
     public function getScript(Request $request) {
         $id = intval($request->route('id'));
         $script = DB::table('scripts')->where('id', $id)->first();
+        $script->author = User::find($script->author_id);
         return response()->json($script);
     }
 }
