@@ -6,10 +6,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/js/app.js',
-                'resources/js/welcome.js',
-                'resources/js/dashboard.js',
-                'resources/js/autoHighlight.js',
+                'resources/js/app.js'
             ],
             refresh: true,
         }),

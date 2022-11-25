@@ -32,5 +32,9 @@
 
         </div>
     </div>
-    @vite(['resources/js/autoHighlight.js'])
+    <script>
+        $(document).ready(function() {
+            App.autoHighlight();
+        });
+    </script>
 </x-app-layout>
