@@ -6,6 +6,7 @@ use App\Models\Script;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ScriptController extends Controller {
 
@@ -16,6 +17,15 @@ class ScriptController extends Controller {
             return $script->id;
         });
         return response()->json($scripts->toArray());
+    }
+
+    public function indexOwn(Request $request) {
+        $user = auth()->user();
+        $scripts = DB::table('scripts')->select('id')->where('author_id', $user->id)->orderByDesc('updated_at')->limit(25)->get();
+        $scripts = $scripts->map(function ($script) {
+            return $script->id;
+        });
+        return view('dashboard', ['scripts' => $scripts->toArray(), 'user' => $user]);
     }
 
     public function searchScripts(Request $request) {

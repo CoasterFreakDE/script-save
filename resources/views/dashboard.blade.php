@@ -4,14 +4,9 @@
             {{ __('Your Scripts') }}
         </h2>
     </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-background overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-text">
-                    {{ __("No scripts yet") }}
-                </div>
-            </div>
-        </div>
-    </div>
+    <script>
+        window.scripts = @json($scripts);
+    </script>
+    @vite(['resources/js/dashboard.js'])
+    <div class="grid sm:grid-cols-1 xl:grid-cols-4 md:grid-cols-2 gap-4 py-6 sm:pt-6" id="preview-container"></div>
 </x-app-layout>
