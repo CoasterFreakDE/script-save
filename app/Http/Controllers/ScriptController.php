@@ -30,4 +30,17 @@ class ScriptController extends Controller {
         $script->author = User::find($script->author_id);
         return response()->json($script);
     }
+
+    public function indexScript(Request $request) {
+        $id = intval($request->route('id'));
+        $script = DB::table('scripts')->where('id', $id)->first();
+        $script->author = User::find($script->author_id);
+
+        // Add view
+        $views = $script->views + 1;
+        $script->views = $views;
+        DB::table('scripts')->where('id', $id)->update(['views' => $views]);
+
+        return view('script', ['script' => $script]);
+    }
 }

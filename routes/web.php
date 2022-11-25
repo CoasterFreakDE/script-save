@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ScriptController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/script/{id}', function () {
-    return view('script');
-})->name('script');
+Route::get('/script/{id}', [ScriptController::class, 'indexScript'])->name('script');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
