@@ -57,9 +57,9 @@ window.App = {
             const script_ids = response.data;
             const previewContainer = document.getElementById('preview-container');
             script_ids.forEach(function(id) {
-                    previewContainer.innerHTML += `<div class="shadow rounded-md p-4 max-w-sm w-full mx-auto" id="preview-${id}">
-                    <div class="animate-pulse flex space-x-4">
-                        <div name="script-thumbnail" class="rounded-3xl bg-secondary h-48 w-96 overflow-hidden text-xs text-clip font-code"></div>
+                    previewContainer.innerHTML += `<div class="shadow rounded-md p-4 w-full mx-auto" id="preview-${id}">
+                    <div class="animate-pulse flex space-x-4 w-full">
+                        <div name="script-thumbnail" class="rounded-3xl bg-secondary h-48 w-full overflow-hidden text-xs text-clip font-code"></div>
                     </div>
                     <div class="animate-pulse flex space-x-4" name="script-meta">
                         <div class="flex-1 space-y-4 py-1">
@@ -86,9 +86,9 @@ window.App = {
     loadOwnScripts: async(script_ids) => {
         const previewContainer = document.getElementById('preview-container');
         script_ids.forEach(function(id) {
-                previewContainer.innerHTML += `<div class="shadow rounded-md p-4 max-w-sm w-full mx-auto" id="preview-${id}">
-                <div class="animate-pulse flex space-x-4">
-                    <div name="script-thumbnail" class="rounded-3xl bg-secondary h-48 w-96 overflow-hidden text-xs text-clip font-code"></div>
+                previewContainer.innerHTML += `<div class="shadow rounded-md p-4 w-full mx-auto" id="preview-${id}">
+                <div class="animate-pulse flex space-x-4 w-full">
+                    <div name="script-thumbnail" class="rounded-3xl bg-secondary h-48 w-full overflow-hidden text-xs text-clip font-code"></div>
                 </div>
                 <div class="animate-pulse flex space-x-4" name="script-meta">
                     <div class="flex-1 space-y-4 py-1">
