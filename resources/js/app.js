@@ -58,10 +58,10 @@ window.App = {
             const previewContainer = document.getElementById('preview-container');
             script_ids.forEach(function(id) {
                     previewContainer.innerHTML += `<div class="shadow rounded-md p-4 w-full mx-auto" id="preview-${id}">
-                    <div class="animate-pulse flex space-x-4 w-full">
+                    <div class="animate-pulse flex space-x-4 w-full truncate">
                         <div name="script-thumbnail" class="rounded-3xl bg-secondary h-48 w-full overflow-hidden text-xs text-clip font-code"></div>
                     </div>
-                    <div class="animate-pulse flex space-x-4" name="script-meta">
+                    <div class="animate-pulse flex space-x-4 truncate" name="script-meta">
                         <div class="flex-1 space-y-4 py-1">
                             <div name="script-details" class="space-y-2 pl-3">
                                 <div name="script-title" class="h-4 bg-secondary rounded w-2/3"></div>
@@ -87,10 +87,10 @@ window.App = {
         const previewContainer = document.getElementById('preview-container');
         script_ids.forEach(function(id) {
                 previewContainer.innerHTML += `<div class="shadow rounded-md p-4 w-full mx-auto" id="preview-${id}">
-                <div class="animate-pulse flex space-x-4 w-full">
+                <div class="animate-pulse flex space-x-4 w-full truncate">
                     <div name="script-thumbnail" class="rounded-3xl bg-secondary h-48 w-full overflow-hidden text-xs text-clip font-code"></div>
                 </div>
-                <div class="animate-pulse flex space-x-4" name="script-meta">
+                <div class="animate-pulse flex space-x-4 truncate" name="script-meta">
                     <div class="flex-1 space-y-4 py-1">
                         <div name="script-details" class="space-y-2 pl-3">
                             <div name="script-title" class="h-4 bg-secondary rounded w-2/3"></div>
