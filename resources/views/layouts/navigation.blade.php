@@ -42,6 +42,11 @@
                                 {{ __('Your scripts') }}
                             </x-dropdown-link>
 
+                            <x-dropdown-link :href="route('profile.add')">
+                                {{ __('Add script') }}
+                            </x-dropdown-link>
+
+
                             <x-dropdown-link :href="route('profile.edit')">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
@@ -107,6 +112,10 @@
                 @auth
                     <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Your scripts') }}
+                    </x-responsive-nav-link>
+
+                    <x-responsive-nav-link :href="route('profile.add')" :active="request()->routeIs('profile.add')">
+                        {{ __('Add script') }}
                     </x-responsive-nav-link>
 
                     <x-responsive-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">

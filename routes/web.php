@@ -24,6 +24,8 @@ Route::get('/dashboard', [ScriptController::class, 'indexOwn'])->middleware(['au
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/add', [ScriptController::class, 'add'])->name('profile.add');
+    Route::patch('/add', [ScriptController::class, 'addScript'])->name('profile.addScript');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

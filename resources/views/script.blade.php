@@ -23,7 +23,7 @@
                 </div>
                 <div class="flex space-x-4 w-full">
                     <div name="script-thumbnail" class="rounded-3xl bg-secondary h-full w-full overflow-hidden text-xs text-clip font-code">
-                        <pre><code class="language-javascript">{{$script->script}}</code></pre>
+                        <pre><code class="language-{{ $language }}">{{$script->script}}</code></pre>
                     </div>
                 </div>
             </div>

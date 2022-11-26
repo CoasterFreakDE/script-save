@@ -42,8 +42,8 @@ class Script extends Model
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
-        'views' => 'long',
-        'author_id' => 'long',
+        'views' => 'integer',
+        'author_id' => 'integer',
     ];
 
     /**

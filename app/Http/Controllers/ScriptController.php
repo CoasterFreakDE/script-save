@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ScriptAddRequest;
 use App\Models\Script;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ScriptController extends Controller {
 
@@ -36,14 +38,15 @@ class ScriptController extends Controller {
 
     public function getScript(Request $request) {
         $id = intval($request->route('id'));
-        $script = DB::table('scripts')->where('id', $id)->first();
+        $script = Script::find($id);
         $script->author = User::find($script->author_id);
+        $script->language = $script->language()->name;
         return response()->json($script);
     }
 
     public function indexScript(Request $request) {
         $id = intval($request->route('id'));
-        $script = DB::table('scripts')->where('id', $id)->first();
+        $script = Script::find($id);
         $script->author = User::find($script->author_id);
 
         // Add view
@@ -51,6 +54,47 @@ class ScriptController extends Controller {
         $script->views = $views;
         DB::table('scripts')->where('id', $id)->update(['views' => $views]);
 
-        return view('script', ['script' => $script]);
+        return view('script', ['script' => $script, 'language' => $script->language()->name]);
+    }
+
+     /**
+     * Display the user's add form.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\View\View
+     */
+    public function add(Request $request)
+    {
+        return view('profile.add', [
+            'user' => $request->user(),
+        ]);
+    }
+
+    /**
+     * Update the user's scripts.
+     *
+     * @param  \App\Http\Requests\ProfileUpdateRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function addScript(ScriptAddRequest $request)
+    {
+        $user = $request->user();
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $scripttext = $request->input('script');
+
+        // Create new Script
+        $script = Script::create([
+            'name' => $name,
+            'description' => $description,
+            'script' => $scripttext,
+            'author_id' => $user->id,
+            'category_id' => 1,
+            'language_id' => 1,
+            'views' => 0,
+        ]);
+        $script->save();
+
+        return Redirect::route('dashboard');
     }
 }

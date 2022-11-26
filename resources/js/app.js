@@ -34,7 +34,7 @@ window.App = {
                 const lines_to_skip = lines.length > 30 ? 15 : 0;
                 const code = lines.slice(lines_to_skip).join('\n');
 
-                scriptThumbnail.innerHTML = `<pre><code class="language-javascript">${code}</code></pre>`;
+                scriptThumbnail.innerHTML = `<pre><code class="language-${preview.language}">${code}</code></pre>`;
                 hljs.highlightAll();
 
                 // remove all animate-pulse classes
